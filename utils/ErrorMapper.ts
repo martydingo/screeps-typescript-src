@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { SourceMapConsumer } from "source-map";
 
 export class ErrorMapper {
@@ -6,6 +7,7 @@ export class ErrorMapper {
 
   public static get consumer(): SourceMapConsumer {
     if (this._consumer == null) {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
       this._consumer = new SourceMapConsumer(require("main.js.map"));
     }
 
