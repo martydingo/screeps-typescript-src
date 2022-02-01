@@ -1,6 +1,7 @@
 import { ErrorMapper } from "./utils/ErrorMapper";
 import { GarbageCollector } from "./utils/GarbageCollector";
 import { Logger } from "./utils/Logger";
+import { UUID } from "./utils/UUID";
 
 enum SeverityLevel {
   Emergency = "Emergency",
@@ -31,5 +32,5 @@ export const loop = ErrorMapper.wrapLoop(() => {
   /* Garbage Collection Routine */
   void GarbageCollector.Run();
   new Logger();
-  Logger.log(SeverityLevel.Debug, "Logging Test Message");
+  Logger.log(SeverityLevel.Debug, UUID.generateUUID("dev"));
 });

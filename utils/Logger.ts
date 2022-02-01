@@ -21,7 +21,7 @@ export interface Severity {
 }
 
 export class Logger {
-  public static Severity: Record<SeverityLevel, Severity>;
+  public static Severity: Severity;
   public constructor() {
     Logger.Severity = {
       Emergency: '<font color="#ff0000">',
@@ -34,7 +34,7 @@ export class Logger {
       Debug: '<font color="#666666">'
     };
   }
-  public static log(DesiredSeverity: SeverityLevel, message: string): void {
-    console.log(Logger.Severity[DesiredSeverity] + "" + message);
+  public static log(Severity: SeverityLevel, message: string): void {
+    console.log(Logger.Severity[Severity] + message);
   }
 }
